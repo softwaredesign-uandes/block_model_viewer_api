@@ -25,10 +25,8 @@ def generateBlocks():
           "x_index": i,
           "y_index": j,
           "z_index": k,
-          "grades": {
-            "au" : auGrade,
-            "cu" : cuGrade,
-          }
+          "au" : auGrade,
+          "cu" : cuGrade,
         })
   return blocks
 
