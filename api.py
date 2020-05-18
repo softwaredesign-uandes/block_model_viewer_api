@@ -30,8 +30,33 @@ def generateBlocks():
         })
   return blocks
 
-@app.route('/api/blocks/', methods=['GET'])
-def blocks():
+@app.route('/api/block_models/', methods=['GET'])
+def block_models():
+  block_models = [
+    {
+      "name": "marvin"
+    },
+    {
+      "name": "mclaughlin"
+    },
+    {
+      "name": "sm2"
+    }
+  ]
+  return jsonify(block_models)
+
+@app.route('/api/block_models/<name>/', methods=['GET'])
+def block_model_info(name):
+  marvin =  {
+    "name": "marvin",
+    "number_of_blocks": 4000,
+    "total_mass": 1000000,
+    "total_mineral": 10000,
+  }
+  return jsonify(marvin)
+
+@app.route('/api/block_models/<name>/blocks/', methods=['GET'])
+def blocks(name):
   return jsonify(generateBlocks())
 
 @app.after_request
