@@ -10,9 +10,9 @@ def generateBlocks():
       j < (2.0/3.0) * ySize and k < (1.0/3.0) * zSize)
 
   blocks = []
-  xSize = 20
-  ySize = 20
-  zSize = 10
+  xSize = 10
+  ySize = 10
+  zSize = 5
   for i in range(xSize):
     for j in range(ySize):
       for k in range(zSize):
@@ -22,9 +22,9 @@ def generateBlocks():
           cuGrade += random.random() / 2.0
           auGrade += random.random() / 2.0
         blocks.append({
-          "x_index": i,
-          "y_index": j,
-          "z_index": k,
+          "x": i,
+          "y": j,
+          "z": k,
           "au" : auGrade,
           "cu" : cuGrade,
         })
@@ -44,16 +44,6 @@ def block_models():
     }
   ]
   return jsonify(block_models)
-
-@app.route('/api/block_models/<name>/', methods=['GET'])
-def block_model_info(name):
-  marvin =  {
-    "name": "marvin",
-    "number_of_blocks": 4000,
-    "total_mass": 1000000,
-    "total_mineral": 10000,
-  }
-  return jsonify(marvin)
 
 @app.route('/api/block_models/<name>/blocks/', methods=['GET'])
 def blocks(name):
