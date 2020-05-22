@@ -7,3 +7,8 @@ class GenerateBlocksTest(unittest.TestCase):
     y_size = 3
     z_size = 3
     self.assertEqual(len(generate_blocks(x_size, y_size, z_size)), x_size * y_size * z_size)
+
+  def test_generate_one_block_indices_are_zero(self):
+    self.assertEqual(generate_blocks(1, 1, 1)[0]["x"], 0)
+    self.assertEqual(generate_blocks(1, 1, 1)[0]["y"], 0)
+    self.assertEqual(generate_blocks(1, 1, 1)[0]["z"], 0)
