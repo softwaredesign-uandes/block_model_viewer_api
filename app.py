@@ -55,4 +55,5 @@ def add_header(response):
     response.headers['Content-Type'] = 'application/json'
     return response
 
-app.run()
+if __name__ == '__main__':
+  app.run()
