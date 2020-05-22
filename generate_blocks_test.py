@@ -15,4 +15,5 @@ class GenerateBlocksTest(unittest.TestCase):
 
   def test_generate_one_block_grades_are_zero(self):
     self.assertEqual(generate_blocks(1, 1, 1)[0]["au"], 0.0)
+
     self.assertEqual(generate_blocks(1, 1, 1)[0]["cu"], 0.0)
