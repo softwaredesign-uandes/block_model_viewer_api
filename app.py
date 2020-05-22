@@ -40,7 +40,7 @@ def block_models():
       "name": "mclaughlin"
     },
     {
-      "name": "sm2"
+      "name": "sm3"
     }
   ]
   return jsonify(block_models)
