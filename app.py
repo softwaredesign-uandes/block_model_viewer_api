@@ -1,7 +1,7 @@
 import flask
 from flask import jsonify
 import random
-import generate_blocks
+from generate_blocks import generate_blocks
 
 app = flask.Flask(__name__)
 

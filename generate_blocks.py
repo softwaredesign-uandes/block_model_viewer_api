@@ -1,3 +1,5 @@
+import random
+
 def generate_blocks(xSize, ySize, zSize):
   def is_block_in_core(i, j, k, xSize, ySize, zSize):
     return (i > (1.0/3.0) * xSize and i < (2.0/3.0) * xSize and j > (1.0/3.0) * ySize and
