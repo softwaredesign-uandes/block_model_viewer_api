@@ -22,7 +22,7 @@ def block_models():
 
 @app.route('/api/block_models/<name>/blocks/', methods=['GET'])
 def blocks(name):
-  return jsonify(generate_blocks(10,10,5))
+  return jsonify(generate_blocks(20,20,10))
 
 @app.after_request
 def add_header(response):
