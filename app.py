@@ -41,8 +41,8 @@ def block(name, index):
       "y": 1,
       "z": 0,
       "grades": {
-        "au" : 5.22,
-        "cu" : 1.12,
+        "au" : random.random() * 100.0,
+        "cu" : random.random() * 100.0,
       },
       "mass" : 54000000.0
     }
