@@ -32,6 +32,23 @@ def blocks(name):
     blocks = { "block_model": { "blocks": blocks } }
   return jsonify(blocks)
 
+@app.route('/api/block_models/<name>/blocks/<index>', methods=['GET'])
+def block(name, index):
+  block = {
+    "block" : {
+      "index": 120,
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "grades": {
+        "au" : 5.22,
+        "cu" : 1.12,
+      },
+      "mass" : 54000000.0
+    }
+  }
+  return jsonify(block)
+
 @app.after_request
 def add_header(response):
     response.headers['Access-Control-Allow-Origin'] = '*'

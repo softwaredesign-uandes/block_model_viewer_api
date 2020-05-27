@@ -6,6 +6,7 @@ def generate_blocks(xSize, ySize, zSize):
       j < (2.0/3.0) * ySize and k < (1.0/3.0) * zSize)
 
   blocks = []
+  index = 0
   for i in range(xSize):
     for j in range(ySize):
       for k in range(zSize):
@@ -15,10 +16,12 @@ def generate_blocks(xSize, ySize, zSize):
           cuGrade += random.random() / 2.0
           auGrade += random.random() / 2.0
         blocks.append({
+          "index": index,
           "x": i,
           "y": j,
           "z": k,
           "au" : auGrade,
           "cu" : cuGrade,
         })
+        index += 1
   return blocks
