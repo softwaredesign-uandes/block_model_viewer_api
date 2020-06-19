@@ -37,20 +37,24 @@ def blocks(name):
 
 @app.route('/api/block_models/<name>/blocks/<index>', methods=['GET'])
 def block(name, index):
-  block = {
-    "block" : {
-      "index": 120,
-      "x": 0,
-      "y": 1,
-      "z": 0,
-      "grades": {
-        "au" : random.random() * 100.0,
-        "cu" : random.random() * 100.0,
-      },
-      "mass" : 54000000.0
+  block = {}
+  if name == "generated":
+    block = {
+      "block" : {
+        "index": 120,
+        "x": 0,
+        "y": 1,
+        "z": 0,
+        "grades": {
+          "au" : random.random() * 100.0,
+          "cu" : random.random() * 100.0,
+        },
+        "mass" : 54000000.0
+      }
     }
-  }
-  return jsonify(block)
+  elif name == "zuck_small":
+    block = next(filter(lambda b: b["index"] == int(index), ZUCK_SMALL["block_model"]["blocks"]), None)
+  return jsonify({ "block": block } )
 
 @app.after_request
 def add_header(response):
