@@ -56,6 +56,27 @@ def block(name, index):
     block = next(filter(lambda b: b["index"] == int(index), ZUCK_SMALL["block_model"]["blocks"]), None)
   return jsonify({ "block": block } )
 
+@app.route('/api/block_models/<name>/blocks/<index>/extract/', methods=['POST'])
+def extract(name, index):
+  block = {}
+  if name == "generated":
+    block = {
+      "block" : {
+        "index": 120,
+        "x": 0,
+        "y": 1,
+        "z": 0,
+        "grades": {
+          "au" : random.random() * 100.0,
+          "cu" : random.random() * 100.0,
+        },
+        "mass" : 54000000.0
+      }
+    }
+  elif name == "zuck_small":
+    block = next(filter(lambda b: b["index"] == int(index), ZUCK_SMALL["block_model"]["blocks"]), None)
+  return jsonify({ "blocks": [block] } )
+
 @app.after_request
 def add_header(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
